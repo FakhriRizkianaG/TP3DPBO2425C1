@@ -12,20 +12,30 @@ Program ini memiliki tema game RPG isekai dengan nama FrizIsekai, berikut adalah
 <img width="1234" height="1064" alt="Frizisekai" src="https://github.com/user-attachments/assets/94cf0ef5-2203-4969-9252-54032f6f17d0" />
 
 Program ini memiliki beberapa Class dan ada beberapa Class yang memiliki relasi tertentu yang tertera sebagai berikut:<br>
+<ol type = 1>
+  <li>
+    Quest => Quest yang bisa dilaksanakan oleh Player. Quest akan diberikan melalui FriendlyNPC <br>
+    name (str)<br>
+    desc (str)<br>
+    Relasi: digunakan oleh Player, FriendlyNPC<br>
+  </li>
+  <li>
+    Karakter
+    - name (str)<br>
+    - gender (str)<br>
+    - race (str)<br>
+    - affiliation (aggregation ke Factions (hanya bisa ada 1 faction))<br>
+    Relasi: Aggregation -> Factions<br>
+    Turunan: CanBattle, FriendlyNPC<br>
+  </li>
+  <li>
+    Factions<br>
+    - name (str)<br>
+    - desc (str)<br>
+    Relasi: digunakan oleh Karakter<br>
+  </li>
+</ol>
 
-1. Quest <br>
-- name (str)<br>
-- desc (str)<br>
-Relasi: digunakan oleh Player, FriendlyNPC<br>
-
-
-2. Karakter
-- name (str)<br>
-- gender (str)<br>
-- race (str)<br>
-- affiliation (aggregation ke Factions (hanya bisa ada 1 faction))<br>
-Relasi: Aggregation -> Factions<br>
-Turunan: CanBattle, FriendlyNPC<br>
 
 
 3. Factions<br>
@@ -97,16 +107,16 @@ Turunan: Skills, Magics<br>
 
 <h3>Penjelasan Relasi</h3>
 <ul>
-<li>Karakter memiliki aggregation dengan Factions untuk menunjukan karakter ini berasal dari faction apa (hanya bisa ada 1 faction per karakter)</li>
-<li>CanBattle dan FriendlyNPC adalah child dari Karakter, hal ini digunakan untuk memisahkan antara karakter yang bisa bertarung dan tidak.</li>
-<li>Player, Enemies dan Companion adalah child dari CanBattle karena mereka adalah karakter yang bisa bertanrung</li>
-<li>Companion adalah child dari FriendlyNPC dan CanBattle karena ini adalah jenis karakter yang tidak memusuhi Player, tapi masih bisa bertarung mendampingi Player</li>
-<li>FriendlyNPC adalah child dari Karakter, karena karakter ini adalah karakter yang baik terhadap player (bahkan ada kemungkinan untuk dinikahi :v), Class ini memiliki 3 child yaitu: Companion, Merchant, Trainer</li>
-<li>Abilities memiliki child Skills dan Magics untuk memisahkan kemampuan yang menggunakan ActionPoint dan Magic</li>
-<li>Player memiliki aggregation ke Skills, Magics, dan Quest. Karena setiap Player bisa mempunyai semua hal tersebut (atau bahkan tidak sama sekali) dan jika player ini menghilang sekalipun, semua Class tersebut tidak akan hilang dan masih bisa digunakan oleh player lain.</li>
-<li>FriendlyNPC punya composition ke Quest karena setiap NPC bisa memberikan quest (atau tidak) kepada player. dan jika karakter ini hilang, maka questnya akan ikut hilang</li>
+  <li>Karakter memiliki aggregation dengan Factions untuk menunjukan karakter ini berasal dari faction apa (hanya bisa ada 1 faction per karakter)</li>
+  <li>CanBattle dan FriendlyNPC adalah child dari Karakter, hal ini digunakan untuk memisahkan antara karakter yang bisa bertarung dan tidak.</li>
+  <li>Player, Enemies dan Companion adalah child dari CanBattle karena mereka adalah karakter yang bisa bertanrung</li>
+  <li>Companion adalah child dari FriendlyNPC dan CanBattle karena ini adalah jenis karakter yang tidak memusuhi Player, tapi masih bisa bertarung mendampingi Player</li>
+  <li>FriendlyNPC adalah child dari Karakter, karena karakter ini adalah karakter yang baik terhadap player (bahkan ada kemungkinan untuk dinikahi :v), Class ini memiliki 3 child yaitu: Companion, Merchant, Trainer</li>
+  <li>Abilities memiliki child Skills dan Magics untuk memisahkan kemampuan yang menggunakan ActionPoint dan Magic</li>
+  <li>Player memiliki aggregation ke Skills, Magics, dan Quest. Karena setiap Player bisa mempunyai semua hal tersebut (atau bahkan tidak sama sekali) dan jika player ini menghilang sekalipun, semua Class tersebut tidak akan hilang dan masih bisa digunakan oleh player lain.</li>
+  <li>FriendlyNPC punya composition ke Quest karena setiap NPC bisa memberikan quest (atau tidak) kepada player. dan jika karakter ini hilang, maka questnya akan ikut hilang</li>
 </ul>
 
 Note: Semua Class mempunyai metode Getter & Setter<br>
 
-
+# Dokumentasi
