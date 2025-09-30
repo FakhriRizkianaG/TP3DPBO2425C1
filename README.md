@@ -95,15 +95,17 @@ Turunan: Skills, Magics<br>
 - element (Fire / Water / Earth / Wind / Dark / Light)<br>
 
 
-<h3>Penjelasan Relasi</h3><br>
-- Karakter memiliki aggregation dengan Factions untuk menunjukan karakter ini berasal dari faction apa (hanya bisa ada 1 faction per karakter)<br>
-- CanBattle dan FriendlyNPC adalah child dari Karakter, hal ini digunakan untuk memisahkan antara karakter yang bisa bertarung dan tidak.<br>
-- Player, Enemies dan Companion adalah child dari CanBattle karena mereka adalah karakter yang bisa bertanrung<br>
-- Companion adalah child dari FriendlyNPC dan CanBattle karena ini adalah jenis karakter yang tidak memusuhi Player, tapi masih bisa bertarung mendampingi Player<br>
-- FriendlyNPC adalah child dari Karakter, karena karakter ini adalah karakter yang baik terhadap player (bahkan ada kemungkinan untuk dinikahi :v), Class ini memiliki 3 child yaitu: Companion, Merchant, Trainer<br>
-- Abilities memiliki child Skills dan Magics untuk memisahkan kemampuan yang menggunakan ActionPoint dan Magic<br>
-- Player memiliki aggregation ke Skills, Magics, dan Quest. Karena setiap Player bisa mempunyai semua hal tersebut (atau bahkan tidak sama sekali) dan jika player ini menghilang sekalipun, semua Class tersebut tidak akan hilang dan masih bisa digunakan oleh player lain.<br>
-- FriendlyNPC punya composition ke Quest karena setiap NPC bisa memberikan quest (atau tidak) kepada player. dan jika karakter ini hilang, maka questnya akan ikut hilang<br>
+<h3>Penjelasan Relasi</h3>
+<ul>
+<li>Karakter memiliki aggregation dengan Factions untuk menunjukan karakter ini berasal dari faction apa (hanya bisa ada 1 faction per karakter)</li>
+<li>CanBattle dan FriendlyNPC adalah child dari Karakter, hal ini digunakan untuk memisahkan antara karakter yang bisa bertarung dan tidak.</li>
+<li>Player, Enemies dan Companion adalah child dari CanBattle karena mereka adalah karakter yang bisa bertanrung</li>
+<li>Companion adalah child dari FriendlyNPC dan CanBattle karena ini adalah jenis karakter yang tidak memusuhi Player, tapi masih bisa bertarung mendampingi Player</li>
+<li>FriendlyNPC adalah child dari Karakter, karena karakter ini adalah karakter yang baik terhadap player (bahkan ada kemungkinan untuk dinikahi :v), Class ini memiliki 3 child yaitu: Companion, Merchant, Trainer</li>
+<li>Abilities memiliki child Skills dan Magics untuk memisahkan kemampuan yang menggunakan ActionPoint dan Magic</li>
+<li>Player memiliki aggregation ke Skills, Magics, dan Quest. Karena setiap Player bisa mempunyai semua hal tersebut (atau bahkan tidak sama sekali) dan jika player ini menghilang sekalipun, semua Class tersebut tidak akan hilang dan masih bisa digunakan oleh player lain.</li>
+<li>FriendlyNPC punya composition ke Quest karena setiap NPC bisa memberikan quest (atau tidak) kepada player. dan jika karakter ini hilang, maka questnya akan ikut hilang</li>
+</ul>
 
 Note: Semua Class mempunyai metode Getter & Setter<br>
 
