@@ -17,7 +17,7 @@ Program ini memiliki beberapa Class dan ada beberapa Class yang memiliki relasi 
     Quest => Quest yang bisa dilaksanakan oleh Player. Quest akan diberikan melalui FriendlyNPC <br>
     name (str)<br>
     desc (str)<br>
-    Relasi: digunakan oleh Player, FriendlyNPC<br>
+    Relasi: digunakan oleh Player, FriendlyNPC<br><br>
   </li>
   <li>
     Karakter
@@ -26,83 +26,95 @@ Program ini memiliki beberapa Class dan ada beberapa Class yang memiliki relasi 
     - race (str)<br>
     - affiliation (aggregation ke Factions (hanya bisa ada 1 faction))<br>
     Relasi: Aggregation -> Factions<br>
-    Turunan: CanBattle, FriendlyNPC<br>
+    Turunan: CanBattle, FriendlyNPC<br><br>
   </li>
   <li>
     Factions<br>
     - name (str)<br>
     - desc (str)<br>
-    Relasi: digunakan oleh Karakter<br>
+    Relasi: digunakan oleh Karakter<br><br>
+  </li>
+  <li>
+    CanBattle (child dari Karakter)<br>
+    - maxActionPoint (int)<br>
+    - maxHealth (int)<br>
+    - maxMana (int)<br>
+    - class (str)<br>
+    Turunan: Player, Enemies<br><br>
+  </li>
+  <li>
+    Player (child dari CanBattle)
+    - level (int)<br>
+    - class (str)<br>
+    - skillOwned (aggregation -> Skills)<br>
+    - magicOwned (aggregation -> Magics)<br>
+    - activeQuest (aggregation -> Quest)<br>
+    Relasi: Use Abilities<br><br>
+  </li>
+  <li>
+    Enemies (child dari CanBattle)<br>
+    - is_elite (bool)<br>
+    - is_escapable (bool)<br><br>
+  </li>
+  <li>
+    FriendlyNPC (child dari Karakter)<br>
+  - is_marryable (bool)<br>
+  - birthday (str)<br>
+  - haveQuest (composition -> Quest)<br>
+  Turunan: Companion, Merchant, Trainer<br><br>
+  </li>
+  <li>
+    Companion (child dari FriendlyNPC dan CanBattle)<br>
+    - fee (int)<br>
+    - grade (F/E/D/C/B/A/S/SS)<br><br>
+  </li>
+  <li>
+    Merchant (child dari FriendlyNPC)<br>
+    - type (Alchemist / Blacksmith / General Goods)<br>
+    - openTime (str)<br><br>
+  </li>
+  <li>
+    Trainer (child dari FriendlyNPC)<br>
+    - fee (int)<br>
+    - trainingType (Health / Mana / ActionPoint)<br><br>
+  </li>
+  <li>
+    Abilities<br>
+    - name (str)<br>
+    - description (str)<br>
+    - type (Damage / Heal)<br>
+    - cooldown (int, seconds)<br>
+    Turunan: Skills, Magics<br><br>
+  </li>
+  <li>
+    Skills (child dari Abilities)<br>
+  - apCost (int)<br><br>
+  </li>
+  <li>
+    Magics (child dari Abilities)<br>
+  - manaCost (str)<br>
+  - element (Fire / Water / Earth / Wind / Dark / Light)<br><br>
+  </li>
+  <li>
+    
   </li>
 </ol>
 
 
 
-3. Factions<br>
-- name (str)<br>
-- desc (str)<br>
-Relasi: digunakan oleh Karakter<br>
 
 
-4. CanBattle (child dari Karakter)<br>
-- maxActionPoint (int)<br>
-- maxHealth (int)<br>
-- maxMana (int)<br>
-- class (str)<br>
-Turunan: Player, Enemies<br>
 
 
-5. Player (child dari CanBattle)
-- level (int)<br>
-- class (str)<br>
-- skillOwned (aggregation -> Skills)<br>
-- magicOwned (aggregation -> Magics)<br>
-- activeQuest (aggregation -> Quest)<br>
-Relasi: Use Abilities<br>
 
 
-6. Enemies (child dari CanBattle)<br>
-- is_elite (bool)<br>
-- is_escapable (bool)<br>
 
 
-7. FriendlyNPC (child dari Karakter)<br>
-- is_marryable (bool)<br>
-- birthday (str)<br>
-- haveQuest (composition -> Quest)<br>
-Turunan: Companion, Merchant, Trainer<br>
 
 
-8. Companion (child dari FriendlyNPC dan CanBattle)<br>
-- fee (int)<br>
-- grade (F/E/D/C/B/A/S/SS)<br>
 
 
-9. Merchant (child dari FriendlyNPC)<br>
-- type (Alchemist / Blacksmith / General Goods)<br>
-- openTime (str)<br>
 
-
-10. Trainer (child dari FriendlyNPC)<br>
-- fee (int)<br>
-- trainingType (Health / Mana / ActionPoint)<br>
-
-
-11. Abilities<br>
-- name (str)<br>
-- description (str)<br>
-- type (Damage / Heal)<br>
-- cooldown (int, seconds)<br>
-Turunan: Skills, Magics<br>
-
-
-12. Skills (child dari Abilities)<br>
-- apCost (int)<br>
-
-
-13. Magics (child dari Abilities)<br>
-- manaCost (str)<br>
-- element (Fire / Water / Earth / Wind / Dark / Light)<br>
 
 
 <h3>Penjelasan Relasi</h3>
