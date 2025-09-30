@@ -95,27 +95,7 @@ Program ini memiliki beberapa Class dan ada beberapa Class yang memiliki relasi 
   - manaCost (str)<br>
   - element (Fire / Water / Earth / Wind / Dark / Light)<br><br>
   </li>
-  <li>
-    
-  </li>
 </ol>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 <h3>Penjelasan Relasi</h3>
 <ul>
