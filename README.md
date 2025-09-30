@@ -20,7 +20,7 @@ Program ini memiliki beberapa Class dan ada beberapa Class yang memiliki relasi 
     Relasi: digunakan oleh Player, FriendlyNPC<br><br>
   </li>
   <li>
-    Karakter
+    Karakter<br>
     - name (str)<br>
     - gender (str)<br>
     - race (str)<br>
