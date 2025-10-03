@@ -1,4 +1,4 @@
-<img width="742" height="945" alt="SesudahAdd2" src="https://github.com/user-attachments/assets/b93f0df2-47a2-4af7-bd53-19bd5054554a" /><img width="954" height="1002" alt="SesudahAdd1" src="https://github.com/user-attachments/assets/6a65d715-7dc2-403f-8965-b2129691a3a3" /># TP3DPBO2425C1
+# TP3DPBO2425C1
 TP 3 Frizkia (Fakhri Rizkiana)
 
 # Janji
@@ -117,8 +117,8 @@ Kondisi sebelum di add<br>
 
 Sesudah di add<br>
 <img width="954" height="1002" alt="SesudahAdd1" src="https://github.com/user-attachments/assets/d87e998d-bc02-48dc-ab5c-c5f9375b4f67" />
-![Uploading Sesu<img width="869" height="937" alt="SesudahAdd3" src="https://github.com/user-attachments/assets/098e9e56-49bc-4a3a-b97e-0d5a129055c6" />
-dahAdd2.png…]()
+<img width="742" height="945" alt="SesudahAdd2" src="https://github.com/user-attachments/assets/85c351ed-99f0-41ab-9fcc-1f1df8dc45b9" />
+<img width="869" height="937" alt="SesudahAdd3" src="https://github.com/user-attachments/assets/df0119a8-dea2-45b6-acd6-7aee2e929715" />
 <img width="636" height="942" alt="SesudahAdd4" src="https://github.com/user-attachments/assets/6ba6d32b-248d-47c8-814b-5c847fc2537d" />
 <img width="632" height="954" alt="SesudahAdd5" src="https://github.com/user-attachments/assets/fff92991-b21e-491b-b344-aec160db9d12" />
 
