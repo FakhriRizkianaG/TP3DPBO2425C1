@@ -9,91 +9,91 @@ melakukan kecurangan seperti yang telah dispesifikasikan. Aamiin.<br>
 
 # Penjelasan Program
 Program ini memiliki tema game RPG isekai dengan nama FrizIsekai, berikut adalah struktur rancangannya<br>
-<img width="1234" height="1064" alt="Frizisekai" src="https://github.com/user-attachments/assets/94cf0ef5-2203-4969-9252-54032f6f17d0" />
+<img width="1234" height="1064" alt="Frizisekai" src="https://github.com/user-attachments/assets/c1c6212b-3f6c-405b-871b-710e6ce0d87e" />
+
 
 Program ini memiliki beberapa Class dan ada beberapa Class yang memiliki relasi tertentu yang tertera sebagai berikut:<br>
 <ol type = 1>
   <li>
     Quest => Quest yang bisa dilaksanakan oleh Player. Quest akan diberikan melalui FriendlyNPC <br>
-    name (str)<br>
-    desc (str)<br>
+    - name (str) => nama dari questnya<br>
+    - desc (str) => deskripsi dari quest, seperti penjelasan quest, jumlah item yang dibutuhkan, dsb<br>
     Relasi: digunakan oleh Player, FriendlyNPC<br><br>
   </li>
   <li>
-    Karakter<br>
-    - name (str)<br>
-    - gender (str)<br>
-    - race (str)<br>
-    - affiliation (aggregation ke Factions (hanya bisa ada 1 faction))<br>
+    Karakter => Mencakup semua karakter yang aada di game ini<br>
+    - name (str) => nama karakter<br>
+    - gender (str) => gender karakter<br>
+    - race (str) => ras dari karakter tersebutbr>
+    - affiliation (aggregation ke Factions (hanya bisa ada 1 faction)) => karakter ini dari faksi apa (bisa tanpa faksi atau unaffiliated)<br>
     Relasi: Aggregation -> Factions<br>
     Turunan: CanBattle, FriendlyNPC<br><br>
   </li>
   <li>
-    Factions<br>
-    - name (str)<br>
-    - desc (str)<br>
+    Factions => Faksi atau guild<br>
+    - name => nama faksi(str)<br>
+    - desc => penjelasan dari faksi. misalnya faksi para assassin, faksi para pedagang, dsb(str)<br>
     Relasi: digunakan oleh Karakter<br><br>
   </li>
   <li>
-    CanBattle (child dari Karakter)<br>
-    - maxActionPoint (int)<br>
-    - maxHealth (int)<br>
-    - maxMana (int)<br>
-    - class (str)<br>
+    CanBattle (child dari Karakter) => karakter yang bisa ikut pertarungan<br>
+    - maxActionPoint (int) => jumlah maksimal Action Point<br>
+    - maxHealth (int) => jumlah maksimal Health<br>
+    - maxMana (int) => jumlah maksimal Mana<br>
+    - class (str) => kelas dari karakter, misalnya Knight, mage, tank, dsb<br>
     Turunan: Player, Enemies<br><br>
   </li>
   <li>
-    Player (child dari CanBattle)
-    - level (int)<br>
-    - class (str)<br>
-    - skillOwned (aggregation -> Skills)<br>
-    - magicOwned (aggregation -> Magics)<br>
-    - activeQuest (aggregation -> Quest)<br>
+    Player (child dari CanBattle) => Karakter yang dimainkan oleh user<br>
+    - level (int) => level dari player<br>
+    - skillOwned (aggregation -> Skills) => skill yang dimiliki player<br>
+    - magicOwned (aggregation -> Magics) => skill yang dimiliki player<br>
+    - activeQuest (aggregation -> Quest) => skill yang dimiliki player<br>
     Relasi: Use Abilities<br><br>
   </li>
   <li>
-    Enemies (child dari CanBattle)<br>
-    - is_elite (bool)<br>
-    - is_escapable (bool)<br><br>
+    Enemies (child dari CanBattle) => karakter hostile<br>
+    - is_elite (bool) => apakah karakter ini karakter elite?<br>
+    - is_escapable (bool) => apakah player bisa lari dari karakter ini di dalam pertarungan<br><br>
   </li>
   <li>
-    FriendlyNPC (child dari Karakter)<br>
-  - is_marryable (bool)<br>
-  - birthday (str)<br>
-  - haveQuest (composition -> Quest)<br>
+    FriendlyNPC (child dari Karakter) => karakter yang bersifat friendly ke player<br>
+  - is_marryable (bool) => bisa dinikahi atau tidak (eaaa nikah)<br>
+  - birthday (str) => tanggal ulang tahun<br>
+  - haveQuest (composition -> Quest) => apa karakter ini punya quest untuk diberikan (bisa kosong atau no quest)<br>
   Turunan: Companion, Merchant, Trainer<br><br>
   </li>
   <li>
-    Companion (child dari FriendlyNPC dan CanBattle)<br>
-    - fee (int)<br>
-    - grade (F/E/D/C/B/A/S/SS)<br><br>
+    Companion (child dari FriendlyNPC dan CanBattle) => FriendlyNPC yang bisa ikut bertarung dengan player<br>
+    - fee (int) => jumlah bayaran yang harus dibayarkan (bisa gratis)<br>
+    - grade (F/E/D/C/B/A/S/SS) => peringkat dari companion, semakin tinggi semakin baik<br><br>
   </li>
   <li>
-    Merchant (child dari FriendlyNPC)<br>
-    - type (Alchemist / Blacksmith / General Goods)<br>
-    - openTime (str)<br><br>
+    Merchant (child dari FriendlyNPC) => NPC pedagang<br>
+    - type (Alchemist / Blacksmith / General Goods) => tipe pedagang (berpengaruh pada barang dagangannya)<br>
+    - openTime (str) (buka jam berapa hingga jam berapa. misalnya 07.00 - 19.00<br><br>
   </li>
   <li>
-    Trainer (child dari FriendlyNPC)<br>
-    - fee (int)<br>
-    - trainingType (Health / Mana / ActionPoint)<br><br>
+    Trainer (child dari FriendlyNPC) => NPC pelatih untuk membantu meningkatkan stats player<br>
+    - fee (int) => bayaran yang harus dibayarkan<br>
+    - trainingType (Health / Mana / ActionPoint) => tipe latihan<br><br>
   </li>
   <li>
-    Abilities<br>
-    - name (str)<br>
-    - description (str)<br>
-    - type (Damage / Heal)<br>
-    - cooldown (int, seconds)<br>
+    Abilities => kemampuan yang bisa digunakan oleh player<br>
+    - name (str) => nama dari kemampuannya<br>
+    - description (str) => deskripsi dari kemampuannya<br>
+    - type (Damage / Heal) => kemampuan ini tipe serangan atau heal<br>
+    - cooldown (int, seconds) => cooldown sebelum bisa digunakan lagi<br>
     Turunan: Skills, Magics<br><br>
   </li>
   <li>
     Skills (child dari Abilities)<br>
-  - apCost (int)<br><br>
+  - apCost (int) => jumlah AP yang berkurang setiap penggunaan skill<br><br>
   </li>
   <li>
     Magics (child dari Abilities)<br>
-  - manaCost (str)<br>
-  - element (Fire / Water / Earth / Wind / Dark / Light)<br><br>
+  - manaCost (str) => jumlah mana yang berkurang setiap penggunaan magic<br>
+  - element (Fire / Water / Earth / Wind / Dark / Light) => tipe dari magic ini<br><br>
   </li>
 </ol>
 
